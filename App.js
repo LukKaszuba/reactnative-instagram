@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 import { QueryClientProvider, QueryClient } from "react-query";
 import Gaga from './src/Post';
 import Photos from './Photos';
-// import Fugu from './photos2';
+import Fugu from './photos2';
 
 
 const Tab = createBottomTabNavigator();
@@ -72,7 +72,7 @@ const SearchScreen = () => {
 const Profile = () => { 
   return (
      <SafeAreaView>
-       
+      
      </SafeAreaView>
 ) }
 
