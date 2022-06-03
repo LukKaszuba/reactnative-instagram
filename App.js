@@ -1,17 +1,23 @@
-import * as React from 'react';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, Image, SafeAreaView, TouchableOpacity } from 'react-native';
+import * as React from "react";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Button } from 'react-native';
-import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import { FlatList } from 'react-native-gesture-handler';
-import { useState, useEffect } from 'react';
+import { Button } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FlatList } from "react-native-gesture-handler";
+import { useState, useEffect } from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
-import Gaga from './src/Post';
-import Photos from './Photos';
-import Fugu from './photos2';
-
+import Photos from "./Photos";
+import Photos2 from "./photos2";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,69 +34,50 @@ const MainNavigator = () => {
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
-}
+};
 
-const NewsFeed = () => { 
-  return (
-     <SafeAreaView>
-       <View>
-       <Image style={{ height: 150, width: '100%', marginBottom: 0}}
-    source={require("./assets/TopBar.jpeg")}/>
-       </View>
-       <Fugu/>
-     </SafeAreaView>
-) }
-
-const HomeScreen = () => { 
-  return (
-    <View>
-      
-    </View>
-
-) }
-const AccountScreen = () => {
-  return(
-    <SafeAreaView>
-     
-    </SafeAreaView>
-  )
-}
-const SearchScreen = () => { 
+const NewsFeed = () => {
   return (
     <SafeAreaView>
-    <Image style={{ height: 60, width: '100%', marginBottom: 2}}
-    source={require("./assets/searchbar.jpg")}/>
-    <View >
-      <  Photos />
-    </View>
-
-  
-  </SafeAreaView>
-
-) }
-
-const Profile = () => { 
-  return (
-     <SafeAreaView>
-      
-     </SafeAreaView>
-) }
-
-class Product extends React.Component {
-  render() {
-    const { name, brand, price, productImage } = this.props.product
-    return (
-      <View style={{ width: '32%', alignItems: 'center',  margin: '0.75%'}}>
-        <Image style={{width:123, height: 123}} source={{ uri: productImage}}/>
-        
+      <View>
+        <Image
+          style={{ height: 150, width: "100%", marginBottom: 0 }}
+          source={require("./assets/TopBar.jpeg")}
+        />
       </View>
-    )
-  }
-}
+      <Photos2 />
+    </SafeAreaView>
+  );
+};
+
+const HomeScreen = () => {
+  return <View></View>;
+};
+const AccountScreen = () => {
+  return <SafeAreaView></SafeAreaView>;
+};
+const SearchScreen = () => {
+  return (
+    <SafeAreaView>
+      <Image
+        style={{ height: 60, width: "100%", marginBottom: 2 }}
+        source={require("./assets/searchbar.jpg")}
+      />
+      <View>
+        <Photos />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const Profile = () => {
+  return <SafeAreaView></SafeAreaView>;
+};
+
 const App = () => (
   <NavigationContainer>
     <Stack.Navigator headerMode="none">
-      <Stack.Screen name="Main" component={MainNavigator}/>
+      <Stack.Screen name="Main" component={MainNavigator} />
     </Stack.Navigator>
   </NavigationContainer>
 );
@@ -100,16 +87,10 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
-
-const jsonPlaceholderData = "https://jsonplaceholder.typicode.com/photos"
-
-
-
-  
-  
+const jsonPlaceholderData = "https://jsonplaceholder.typicode.com/photos";

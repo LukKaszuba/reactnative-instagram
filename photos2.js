@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { View, Image, FlatList, Text, TouchableOpacity, StyleSheet, SafeAreaView} from "react-native"
 
-export default function Fugu() {
+export default function Photos2() {
   const [data, setData] = useState([])
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/photos")
@@ -17,7 +17,7 @@ export default function Fugu() {
   const renderItem = ({ item }) => {
     console.log(item)
     return (
-      <View style={woofPostStyles.card}>
+      <View style={instPostStyles.card}>
         <Image style={{ height: 60, width: '100%', marginBottom: 2}}
     source={require("./assets/cardTop.jpg")}/>
         <Image style={{ height: 300, width: "100%", marginBottom: 2, }} source={{ uri: item.url }} />
@@ -41,68 +41,68 @@ export default function Fugu() {
 }
 
 
-const Avatar = (props) => (
-  <Image
-    style={styles.avatar}
-    source={{ uri: props.url }}
-  />
-);
+// const Avatar = (props) => (
+//   <Image
+//     style={styles.avatar}
+//     source={{ uri: props.url }}
+//   />
+// );
 
-const Heading = (props) => (
-  <Text style={styles.heading}>
-    {props.children}
-  </Text>
-);
+// const Heading = (props) => (
+//   <Text style={styles.heading}>
+//     {props.children}
+//   </Text>
+// );
 
-const Title = (props) => (
-  <Text style={styles.title}>
-    {props.children}
-  </Text>
-);
+// const Title = (props) => (
+//   <Text style={styles.title}>
+//     {props.children}
+//   </Text>
+// );
 
 
-const WoofCard = (props) => (
-  <SafeAreaView>
-  <View style={woofCardStyles.card}>
-    <Avatar url={props.avatar}/>
+// const instCard = (props) => (
+//   <SafeAreaView>
+//   <View style={instCardStyles.card}>
+//     <Avatar url={props.avatar}/>
     
-  </View>
-  <View style={woofCardStyles.title}>
-      <Title>{props.name}</Title>
-    </View>
-  </SafeAreaView>
+//   </View>
+//   <View style={instCardStyles.title}>
+//       <Title>{props.name}</Title>
+//     </View>
+//   </SafeAreaView>
   
-);
+// );
 
-const woofCardStyles = StyleSheet.create({
-  card: {
-    width: 68,
-    height: 68,
-    backgroundColor: 'white',
-    borderWidth: 1.8,
-    borderRadius: 100,
-    borderColor: '#c13584',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    textAlign: 'center',
-    paddingTop: 4,
-    paddingLeft: 12,
-  },
-});
+// const instCardStyles = StyleSheet.create({
+//   card: {
+//     width: 68,
+//     height: 68,
+//     backgroundColor: 'white',
+//     borderWidth: 1.8,
+//     borderRadius: 100,
+//     borderColor: '#c13584',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   title: {
+//     textAlign: 'center',
+//     paddingTop: 4,
+//     paddingLeft: 12,
+//   },
+// });
 
 
-const WoofPost = (props) => (
-  <View style={woofPostStyles.card}>
+// const instPost = (props) => (
+//   <View style={instPostStyles.card}>
     
-  </View>
-);
+//   </View>
+// );
 
 
 
 
-const woofPostStyles = StyleSheet.create({
+const instPostStyles = StyleSheet.create({
   card: {
     width: '100%',
     height: 600,
@@ -131,33 +131,6 @@ const woofPostStyles = StyleSheet.create({
 });
 
 
-const Gaga = () => {
-  return (
-    
-    <View style={styles.layout}>
-      
-      <ScrollView>
-    <ScrollView horizontal>
-      {
-        data.woofs.map(woof => (
-          <WoofCard key={woof.id} name={woof.name} avatar={woof.avatar} />
-        ))
-      }
-    </ScrollView>
-    <ScrollView>
-      {
-        data.posts.map(post => (
-          <WoofPost key={post.id} image={post.image} title={post.title} description={post.description} />
-        ))
-      }
-    
-
-      </ScrollView>
-  </ScrollView>
-    </View>
-    
-  )
-}
 
 const styles = StyleSheet.create({
   layout: {
