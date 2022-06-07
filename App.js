@@ -1,28 +1,19 @@
 import * as React from "react";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
 import {
   StyleSheet,
-  Text,
   View,
-  ScrollView,
   Image,
   SafeAreaView,
-  TouchableOpacity,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Button } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FlatList } from "react-native-gesture-handler";
-import { useState, useEffect } from "react";
-import { QueryClientProvider, QueryClient } from "react-query";
-import Photos from "./Photos";
-import Photos2 from "./photos2";
+import Photos from "./src/photos/Photos";
+import Photos2 from "./src/photos/photos2";
 
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
-const queryClient = new QueryClient();
 
 const MainNavigator = () => {
   return (
@@ -41,7 +32,7 @@ const NewsFeed = () => {
     <SafeAreaView>
       <View>
         <Image
-          style={{ height: 150, width: "100%", marginBottom: 0 }}
+          style={styles.imageFeed}
           source={require("./assets/TopBar.jpeg")}
         />
       </View>
@@ -60,7 +51,7 @@ const SearchScreen = () => {
   return (
     <SafeAreaView>
       <Image
-        style={{ height: 60, width: "100%", marginBottom: 2 }}
+        style={styles.imageSearchScreen}
         source={require("./assets/searchbar.jpg")}
       />
       <View>
@@ -85,12 +76,15 @@ const App = () => (
 export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  imageFeed: { 
+    height: 150, 
+    width: "100%",
+     marginBottom: 0
+    },
+  imageSearchScreen: { 
+    height: 60,
+     width: "100%",
+      marginBottom: 2 
+    },
 });
 
-const jsonPlaceholderData = "https://jsonplaceholder.typicode.com/photos";

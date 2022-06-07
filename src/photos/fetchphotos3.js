@@ -1,5 +1,5 @@
 import { View, FlatList, StyleSheet, Text, Image } from "react-native";
-import { useQueries } from "react-query";
+import { useQuery} from "react-query";
 
 
 async function fetchPhotos() {
@@ -7,16 +7,12 @@ async function fetchPhotos() {
     return response.json();
   }
   
-  async function fetchAlbums() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/albums");
-    return response.json();
-  }
 
 function Photos() {
   const [
     { data: photos, refetch: photosRefetch, isLoading: isPhotosLoading },
     
-  ] = useQueries([
+  ] = useQuery([
     {
       queryKey: "photos",
       queryFn: fetchPhotos,

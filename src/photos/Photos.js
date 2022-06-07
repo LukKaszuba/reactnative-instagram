@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { View, Image, FlatList, Text, TouchableOpacity } from "react-native"
+import { View, Image, FlatList, StyleSheet  } from "react-native"
 
 export default function Photos() {
   const [data, setData] = useState([])
@@ -17,8 +17,8 @@ export default function Photos() {
   const renderItem = ({ item }) => {
     console.log(item)
     return (
-      <View style={{ flex: 1, flexDirection: "row",  }}>
-        <Image style={{ height: 100, width: 122, marginBottom: 2, }} source={{ uri: item.url }} />
+      <View style={styles.photosStyle}>
+        <Image style={styles.imageStyle} source={{ uri: item.url }} />
       </View>
     )
   }
@@ -33,3 +33,15 @@ export default function Photos() {
     </View>
   )
 }
+
+
+const styles = StyleSheet.create({
+  photosStyle: { flex: 1,
+     flexDirection: "row",  
+},
+imageStyle: { height: 100,
+   width: 122,
+    marginBottom: 2,
+   },
+    
+});

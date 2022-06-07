@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { View, Image, FlatList, Text, TouchableOpacity, StyleSheet, SafeAreaView} from "react-native"
+import { View, Image, FlatList, StyleSheet, SafeAreaView} from "react-native"
+
 
 export default function Photos2() {
   const [data, setData] = useState([])
@@ -18,11 +19,11 @@ export default function Photos2() {
     console.log(item)
     return (
       <View style={instPostStyles.card}>
-        <Image style={{ height: 60, width: '100%', marginBottom: 2}}
-    source={require("./assets/cardTop.jpg")}/>
-        <Image style={{ height: 300, width: "100%", marginBottom: 2, }} source={{ uri: item.url }} />
-        <Image style={{ marginTop: 15, marginBottom: 15, height: 200, width: '100%',}}
-    source={require("./assets/cardBottom.jpg")}/>
+        <Image style={styles.cardTop}
+    source={require("../../assets/cardTop.jpg")}/>
+        <Image style={styles.cardBottom1} />
+        <Image style={styles.cardBottom2}
+    source={require("../../assets/cardBottom.jpg")}/>
       </View>
     )
   }
@@ -40,64 +41,6 @@ export default function Photos2() {
   )
 }
 
-
-// const Avatar = (props) => (
-//   <Image
-//     style={styles.avatar}
-//     source={{ uri: props.url }}
-//   />
-// );
-
-// const Heading = (props) => (
-//   <Text style={styles.heading}>
-//     {props.children}
-//   </Text>
-// );
-
-// const Title = (props) => (
-//   <Text style={styles.title}>
-//     {props.children}
-//   </Text>
-// );
-
-
-// const instCard = (props) => (
-//   <SafeAreaView>
-//   <View style={instCardStyles.card}>
-//     <Avatar url={props.avatar}/>
-    
-//   </View>
-//   <View style={instCardStyles.title}>
-//       <Title>{props.name}</Title>
-//     </View>
-//   </SafeAreaView>
-  
-// );
-
-// const instCardStyles = StyleSheet.create({
-//   card: {
-//     width: 68,
-//     height: 68,
-//     backgroundColor: 'white',
-//     borderWidth: 1.8,
-//     borderRadius: 100,
-//     borderColor: '#c13584',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   title: {
-//     textAlign: 'center',
-//     paddingTop: 4,
-//     paddingLeft: 12,
-//   },
-// });
-
-
-// const instPost = (props) => (
-//   <View style={instPostStyles.card}>
-    
-//   </View>
-// );
 
 
 
@@ -175,5 +118,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 100,
   },
-  
+  cardTop: { height: 60, width: '100%', marginBottom: 2},
+  cardBottom1: { height: 300, width: "100%", marginBottom: 2, },
+  cardBottom2: { marginTop: 15, marginBottom: 15, height: 200, width: '100%',},
 });
